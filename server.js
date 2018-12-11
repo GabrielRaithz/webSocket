@@ -9,11 +9,9 @@ let io = socket(server);
 
 io.on('connection', function newConnection(socket) {
     console.log('new connection: ' + socket.id);
-    io.on('mouse', function mouseMsg(data) {
+    socket.on('mouse', function mouseMsg(data) {
         socket.broadcast.emit('mouse', data);
-        console.log(data);
     });
-
 });
 
 
